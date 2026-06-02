@@ -1,0 +1,15 @@
+{
+  "name": "online-docs",
+  "private": true,
+  "packageManager": "pnpm@9.15.0",
+  "scripts": {
+    "dev": "corepack pnpm --parallel --filter @online-docs/api --filter @online-docs/web dev",
+    "test": "corepack pnpm -r test",
+    "test:e2e": "corepack pnpm --filter @online-docs/e2e test",
+    "typecheck": "corepack pnpm -r typecheck"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.0",
+    "typescript": "^5.5.0"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "@online-docs/api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fastify/websocket": "^10.0.0",
+    "fastify": "^4.28.0",
+    "nanoid": "^5.0.7",
+    "ws": "^8.17.0",
+    "yjs": "^13.6.18"
+  },
+  "devDependencies": {
+    "@types/ws": "^8.5.10",
+    "tsx": "^4.16.0",
+    "typescript": "^5.5.0",
+    "vitest": "^1.6.0"
+  }
+}
