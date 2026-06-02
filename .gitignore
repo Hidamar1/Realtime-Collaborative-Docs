@@ -4,5 +4,6 @@ coverage/
 .env
 .env.local
 .superpowers/
+.worktrees/
 playwright-report/
 test-results/
