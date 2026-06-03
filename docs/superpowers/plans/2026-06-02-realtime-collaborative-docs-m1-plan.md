@@ -2381,7 +2381,7 @@ git commit -m "test: cover collaborative document preview flow"
 - 创建：`README.md`
 - 修改：`docs/superpowers/plans/2026-06-02-realtime-collaborative-docs-m1-plan.md`
 
-- [ ] **步骤 1：编写 README**
+- [x] **步骤 1：编写 README**
 
 写入 `README.md`：
 
@@ -2426,7 +2426,7 @@ pnpm test:e2e
 - 计划：`docs/superpowers/plans/2026-06-02-realtime-collaborative-docs-m1-plan.md`
 ```
 
-- [ ] **步骤 2：运行最终验证**
+- [x] **步骤 2：运行最终验证**
 
 运行：
 
@@ -2438,7 +2438,7 @@ pnpm test:e2e
 
 预期：全部 PASS。
 
-- [ ] **步骤 3：检查 Git 状态**
+- [x] **步骤 3：检查 Git 状态**
 
 运行：
 
@@ -2448,7 +2448,7 @@ git status --short
 
 预期：只显示 `README.md` 和计划文档变更。
 
-- [ ] **步骤 4：Commit**
+- [x] **步骤 4：Commit**
 
 ```bash
 git add README.md docs/superpowers/plans/2026-06-02-realtime-collaborative-docs-m1-plan.md
