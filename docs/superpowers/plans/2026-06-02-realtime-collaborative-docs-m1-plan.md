@@ -1339,7 +1339,7 @@ git commit -m "feat: add share comment and snapshot services"
 - 创建：`apps/api/src/index.ts`
 - 创建：`apps/api/tests/httpApi.test.ts`
 
-- [ ] **步骤 1：编写失败的 HTTP API 测试**
+- [x] **步骤 1：编写失败的 HTTP API 测试**
 
 写入 `apps/api/tests/httpApi.test.ts`：
 
@@ -1385,7 +1385,7 @@ describe('HTTP API', () => {
 });
 ```
 
-- [ ] **步骤 2：运行测试验证失败**
+- [x] **步骤 2：运行测试验证失败**
 
 运行：
 
@@ -1395,7 +1395,7 @@ pnpm --filter @online-docs/api test tests/httpApi.test.ts
 
 预期：FAIL，报错包含 `Cannot find module '../src/server'`。
 
-- [ ] **步骤 3：实现测试身份解析**
+- [x] **步骤 3：实现测试身份解析**
 
 写入 `apps/api/src/auth/currentUser.ts`：
 
@@ -1416,7 +1416,7 @@ export function getCurrentUser(request: FastifyRequest): CurrentUser {
 }
 ```
 
-- [ ] **步骤 4：实现 HTTP 路由**
+- [x] **步骤 4：实现 HTTP 路由**
 
 写入 `apps/api/src/routes/documents.ts`：
 
@@ -1441,13 +1441,14 @@ export async function registerDocumentRoutes(app: FastifyInstance, store: Memory
     return createDocumentFromTemplate(store, { templateId: body.templateId, ownerId: user.id });
   });
 
-  app.get('/api/documents/:documentId', async (request) => {
+  app.get('/api/documents/:documentId', async (request, reply) => {
     getCurrentUser(request);
     const params = request.params as { documentId: string };
     const document = store.documents.get(params.documentId);
     const content = store.contents.get(params.documentId);
     if (!document || !content) {
-      return app.httpErrors.notFound('Document not found');
+      reply.code(404);
+      return { error: 'Document not found' };
     }
     return { document, content };
   });
@@ -1548,7 +1549,7 @@ export async function registerSnapshotRoutes(app: FastifyInstance, store: Memory
 }
 ```
 
-- [ ] **步骤 5：创建服务器入口**
+- [x] **步骤 5：创建服务器入口**
 
 写入 `apps/api/src/server.ts`：
 
@@ -1589,7 +1590,7 @@ await server.listen({ host: '127.0.0.1', port: 3000 });
 console.log('API listening on http://127.0.0.1:3000');
 ```
 
-- [ ] **步骤 6：运行测试验证通过**
+- [x] **步骤 6：运行测试验证通过**
 
 运行：
 
@@ -1599,7 +1600,7 @@ pnpm --filter @online-docs/api test tests/httpApi.test.ts
 
 预期：PASS，1 个测试通过。
 
-- [ ] **步骤 7：Commit**
+- [x] **步骤 7：Commit**
 
 ```bash
 git add apps/api/src apps/api/tests/httpApi.test.ts
