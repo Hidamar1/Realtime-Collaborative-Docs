@@ -600,7 +600,7 @@ git commit -m "feat: add shared document permission policy"
 - 创建：`apps/api/src/security/sanitize.ts`
 - 创建：`apps/api/tests/sanitize.test.ts`
 
-- [ ] **步骤 1：编写失败的清理测试**
+- [x] **步骤 1：编写失败的清理测试**
 
 写入 `apps/api/tests/sanitize.test.ts`：
 
@@ -633,7 +633,7 @@ describe('sanitizeRichTextHtml', () => {
 });
 ```
 
-- [ ] **步骤 2：运行测试验证失败**
+- [x] **步骤 2：运行测试验证失败**
 
 运行：
 
@@ -643,7 +643,7 @@ pnpm --filter @online-docs/api test tests/sanitize.test.ts
 
 预期：FAIL，报错包含 `Cannot find module '../src/security/sanitize'`。
 
-- [ ] **步骤 3：编写最少实现代码**
+- [x] **步骤 3：编写最少实现代码**
 
 写入 `apps/api/src/security/sanitize.ts`：
 
@@ -677,7 +677,7 @@ export function sanitizeRichTextHtml(input: string): string {
 }
 ```
 
-- [ ] **步骤 4：运行测试验证通过**
+- [x] **步骤 4：运行测试验证通过**
 
 运行：
 
@@ -687,7 +687,7 @@ pnpm --filter @online-docs/api test tests/sanitize.test.ts
 
 预期：PASS，4 个测试通过。
 
-- [ ] **步骤 5：Commit**
+- [x] **步骤 5：Commit**
 
 ```bash
 git add apps/api/src/security/sanitize.ts apps/api/tests/sanitize.test.ts
