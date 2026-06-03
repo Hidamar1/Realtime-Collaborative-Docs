@@ -1797,8 +1797,9 @@ git commit -m "feat: add yjs collaboration room service"
 - 创建：`apps/web/src/pages/PublicPreviewPage.tsx`
 - 创建：`apps/web/src/App.tsx`
 - 创建：`apps/web/src/styles.css`
+- 修改：`apps/web/tsconfig.json`
 
-- [ ] **步骤 1：编写失败的编辑器 schema 测试**
+- [x] **步骤 1：编写失败的编辑器 schema 测试**
 
 写入 `apps/web/tests/editorSchema.test.ts`：
 
@@ -1819,7 +1820,7 @@ describe('collaborativeDocSchema', () => {
 });
 ```
 
-- [ ] **步骤 2：运行测试验证失败**
+- [x] **步骤 2：运行测试验证失败**
 
 运行：
 
@@ -1829,7 +1830,7 @@ pnpm --filter @online-docs/web test tests/editorSchema.test.ts
 
 预期：FAIL，报错包含 `Cannot find module '../src/editor/schema'`。
 
-- [ ] **步骤 3：实现 ProseMirror schema**
+- [x] **步骤 3：实现 ProseMirror schema**
 
 写入 `apps/web/src/editor/schema.ts`：
 
@@ -1889,7 +1890,7 @@ export const collaborativeDocSchema = new Schema({
 });
 ```
 
-- [ ] **步骤 4：运行 schema 测试验证通过**
+- [x] **步骤 4：运行 schema 测试验证通过**
 
 运行：
 
@@ -1899,7 +1900,7 @@ pnpm --filter @online-docs/web test tests/editorSchema.test.ts
 
 预期：PASS，1 个测试通过。
 
-- [ ] **步骤 5：创建前端 API 与页面骨架**
+- [x] **步骤 5：创建前端 API 与页面骨架**
 
 写入 `apps/web/src/api/client.ts`：
 
@@ -2121,7 +2122,7 @@ body {
 }
 ```
 
-- [ ] **步骤 6：运行前端测试和类型检查**
+- [x] **步骤 6：运行前端测试和类型检查**
 
 运行：
 
@@ -2132,7 +2133,7 @@ pnpm --filter @online-docs/web typecheck
 
 预期：PASS，无 TypeScript 错误。
 
-- [ ] **步骤 7：Commit**
+- [x] **步骤 7：Commit**
 
 ```bash
 git add apps/web
