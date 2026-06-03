@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { apiGet, apiPost } from '../api/client';
 import { TemplateCard } from '../components/Card/TemplateCard';
 import { Button } from '../components/Button/Button';
+import { ThemeToggle } from '../components/ThemeToggle/ThemeToggle';
 
 interface TemplateRecord {
   id: string;
@@ -34,40 +35,58 @@ export function HomePage() {
   }
 
   return (
-    <main className="cd-page">
-      <header style={{ marginBottom: 'var(--space-8)' }}>
-        <h1 style={{ marginTop: 0 }}>创建新文档</h1>
-        <p style={{
-          color: 'var(--color-text-secondary)',
-          fontSize: 'var(--text-sm)'
-        }}>
-          从教育与轻项目模板开始，或创建空白文档。
-        </p>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      {/* 顶部导航 */}
+      <header className="cd-toolbar">
+        <div className="cd-toolbar__left">
+          <span style={{
+            fontWeight: 'var(--font-bold)',
+            fontSize: 'var(--text-base)',
+            color: 'var(--color-text-primary)'
+          }}>
+            📝 实时协作文档
+          </span>
+        </div>
+        <div className="cd-toolbar__right">
+          <ThemeToggle />
+        </div>
       </header>
 
-      <div style={{ marginBottom: 'var(--space-8)' }}>
-        <Button onClick={createBlank}>+ 空白文档</Button>
-      </div>
+      <main className="cd-page" style={{ flex: 1 }}>
+        <header style={{ marginBottom: 'var(--space-8)' }}>
+          <h1 style={{ marginTop: 0 }}>创建新文档</h1>
+          <p style={{
+            color: 'var(--color-text-secondary)',
+            fontSize: 'var(--text-sm)'
+          }}>
+            从教育与轻项目模板开始，或创建空白文档。
+          </p>
+        </header>
 
-      <section>
-        <h2 style={{
-          fontSize: 'var(--text-lg)',
-          marginBottom: 'var(--space-4)'
-        }}>
-          模板
-        </h2>
-        <div className="cd-card-grid">
-          {templates.map((template) => (
-            <TemplateCard
-              key={template.id}
-              id={template.id}
-              title={template.title}
-              description={template.description}
-              onClick={createFromTemplate}
-            />
-          ))}
+        <div style={{ marginBottom: 'var(--space-8)' }}>
+          <Button onClick={createBlank}>+ 空白文档</Button>
         </div>
-      </section>
-    </main>
+
+        <section>
+          <h2 style={{
+            fontSize: 'var(--text-lg)',
+            marginBottom: 'var(--space-4)'
+          }}>
+            模板
+          </h2>
+          <div className="cd-card-grid">
+            {templates.map((template) => (
+              <TemplateCard
+                key={template.id}
+                id={template.id}
+                title={template.title}
+                description={template.description}
+                onClick={createFromTemplate}
+              />
+            ))}
+          </div>
+        </section>
+      </main>
+    </div>
   );
 }
