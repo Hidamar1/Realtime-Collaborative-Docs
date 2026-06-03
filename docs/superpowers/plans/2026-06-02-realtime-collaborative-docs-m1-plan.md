@@ -374,7 +374,7 @@ git commit -m "chore: initialize collaborative docs workspace"
 - 修改：`apps/api/package.json`
 - 修改：`apps/web/package.json`
 
-- [ ] **步骤 1：编写失败的权限测试**
+- [x] **步骤 1：编写失败的权限测试**
 
 写入 `packages/shared/tests/permissionPolicy.test.ts`：
 
@@ -430,7 +430,7 @@ describe('canPerform', () => {
 });
 ```
 
-- [ ] **步骤 2：运行测试验证失败**
+- [x] **步骤 2：运行测试验证失败**
 
 运行：
 
@@ -440,7 +440,7 @@ pnpm --filter @online-docs/shared test
 
 预期：FAIL，报错包含 `Cannot find module '../src/permissionPolicy'`。
 
-- [ ] **步骤 3：创建 shared 包和最小实现**
+- [x] **步骤 3：创建 shared 包和最小实现**
 
 写入 `packages/shared/package.json`：
 
@@ -553,7 +553,7 @@ export function canPerform(role: Role, action: PermissionAction): boolean {
 }
 ```
 
-- [ ] **步骤 4：声明 API 和 Web 对 shared 的依赖**
+- [x] **步骤 4：声明 API 和 Web 对 shared 的依赖**
 
 在 `apps/api/package.json` 的 `dependencies` 中加入：
 
@@ -567,7 +567,7 @@ export function canPerform(role: Role, action: PermissionAction): boolean {
 "@online-docs/shared": "workspace:*"
 ```
 
-- [ ] **步骤 5：运行测试验证通过**
+- [x] **步骤 5：运行测试验证通过**
 
 运行：
 
@@ -577,7 +577,7 @@ pnpm --filter @online-docs/shared test
 
 预期：PASS，4 个测试通过。
 
-- [ ] **步骤 6：运行类型检查**
+- [x] **步骤 6：运行类型检查**
 
 运行：
 
@@ -587,7 +587,7 @@ pnpm --filter @online-docs/shared typecheck
 
 预期：PASS，无 TypeScript 错误。
 
-- [ ] **步骤 7：Commit**
+- [x] **步骤 7：Commit**
 
 ```bash
 git add packages/shared apps/api/package.json apps/web/package.json pnpm-lock.yaml
