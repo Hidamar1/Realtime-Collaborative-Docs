@@ -2,7 +2,9 @@ import { createRoot } from 'react-dom/client';
 import { DocumentPage } from './pages/DocumentPage';
 import { HomePage } from './pages/HomePage';
 import { PublicPreviewPage } from './pages/PublicPreviewPage';
-import './styles.css';
+import './styles/tokens.css';
+import './styles/base.css';
+import './styles/utilities.css';
 
 function App() {
   const path = window.location.pathname;
