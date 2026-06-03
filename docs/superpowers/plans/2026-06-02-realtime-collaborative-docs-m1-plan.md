@@ -2146,7 +2146,7 @@ git commit -m "feat: add collaborative document web shell"
 - 创建：`apps/web/src/editor/createEditor.ts`
 - 修改：`apps/web/src/pages/DocumentPage.tsx`
 
-- [ ] **步骤 1：编写失败的编辑器创建测试**
+- [x] **步骤 1：编写失败的编辑器创建测试**
 
 写入 `apps/web/tests/createEditor.test.ts`：
 
@@ -2164,7 +2164,7 @@ describe('createInitialYDocText', () => {
 });
 ```
 
-- [ ] **步骤 2：运行测试验证失败**
+- [x] **步骤 2：运行测试验证失败**
 
 运行：
 
@@ -2174,7 +2174,7 @@ pnpm --filter @online-docs/web test tests/createEditor.test.ts
 
 预期：FAIL，报错包含 `Cannot find module '../src/editor/createEditor'`。
 
-- [ ] **步骤 3：实现最小编辑器辅助函数**
+- [x] **步骤 3：实现最小编辑器辅助函数**
 
 写入 `apps/web/src/editor/createEditor.ts`：
 
@@ -2208,7 +2208,7 @@ export function mountEditor(element: HTMLElement, ydoc: Y.Doc, provider: { aware
 }
 ```
 
-- [ ] **步骤 4：接入 DocumentPage**
+- [x] **步骤 4：接入 DocumentPage**
 
 把 `apps/web/src/pages/DocumentPage.tsx` 替换为：
 
@@ -2266,7 +2266,7 @@ export function DocumentPage({ documentId }: { documentId: string }) {
 }
 ```
 
-- [ ] **步骤 5：运行测试验证通过**
+- [x] **步骤 5：运行测试验证通过**
 
 运行：
 
@@ -2277,7 +2277,7 @@ pnpm --filter @online-docs/web typecheck
 
 预期：PASS，无 TypeScript 错误。
 
-- [ ] **步骤 6：Commit**
+- [x] **步骤 6：Commit**
 
 ```bash
 git add apps/web/src/editor/createEditor.ts apps/web/src/pages/DocumentPage.tsx apps/web/tests/createEditor.test.ts
