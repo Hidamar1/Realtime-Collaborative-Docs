@@ -1,0 +1,50 @@
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.saved {
+  color: var(--color-success);
+}
+.saved .dot {
+  background: var(--color-success);
+}
+
+.saving {
+  color: var(--color-accent);
+}
+.saving .dot {
+  background: var(--color-accent);
+  animation: pulse-amber 1.2s ease-in-out infinite;
+}
+
+.offline {
+  color: var(--color-danger);
+}
+.offline .dot {
+  background: var(--color-danger);
+}
+
+.offlineIcon {
+  font-weight: var(--font-bold);
+  font-size: 10px;
+  line-height: 1;
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: var(--color-danger);
+  color: #fff;
+}
