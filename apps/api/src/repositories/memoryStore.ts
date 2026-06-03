@@ -29,6 +29,48 @@ export interface TemplateRecord {
   updatedAt: string;
 }
 
+export interface ShareLinkRecord {
+  id: string;
+  documentId: string;
+  token: string;
+  enabled: boolean;
+  createdBy: string;
+  createdAt: string;
+  disabledAt?: string;
+}
+
+export interface CommentThreadRecord {
+  id: string;
+  documentId: string;
+  anchor: unknown;
+  status: 'open' | 'resolved';
+  createdBy: string;
+  createdAt: string;
+  resolvedBy?: string;
+  resolvedAt?: string;
+}
+
+export interface CommentReplyRecord {
+  id: string;
+  threadId: string;
+  body: string;
+  createdBy: string;
+  createdAt: string;
+  updatedAt?: string;
+  deletedAt?: string;
+}
+
+export interface DocumentSnapshotRecord {
+  id: string;
+  documentId: string;
+  contentState: unknown;
+  collaborationState: Uint8Array;
+  documentVersion: number;
+  createdAt: string;
+  createdBy: string;
+  reason: 'time_interval' | 'significant_change' | 'restore' | 'last_editor_left';
+}
+
 export interface AuditEvent {
   id: string;
   actorId: string;
@@ -42,6 +84,10 @@ export interface MemoryStore {
   contents: Map<string, DocumentContentRecord>;
   members: Map<string, DocumentMemberRecord>;
   templates: TemplateRecord[];
+  shareLinks: Map<string, ShareLinkRecord>;
+  commentThreads: Map<string, CommentThreadRecord>;
+  commentReplies: CommentReplyRecord[];
+  snapshots: DocumentSnapshotRecord[];
   auditEvents: AuditEvent[];
 }
 
@@ -90,6 +136,10 @@ export function createMemoryStore(): MemoryStore {
         updatedAt: createdAt
       }
     ],
+    shareLinks: new Map(),
+    commentThreads: new Map(),
+    commentReplies: [],
+    snapshots: [],
     auditEvents: []
   };
 }

@@ -959,7 +959,7 @@ git commit -m "feat: add in-memory document creation service"
 - 创建：`apps/api/tests/snapshotService.test.ts`
 - 修改：`apps/api/src/repositories/memoryStore.ts`
 
-- [ ] **步骤 1：编写失败的分享服务测试**
+- [x] **步骤 1：编写失败的分享服务测试**
 
 写入 `apps/api/tests/shareService.test.ts`：
 
@@ -987,7 +987,7 @@ describe('shareService', () => {
 });
 ```
 
-- [ ] **步骤 2：编写失败的评论服务测试**
+- [x] **步骤 2：编写失败的评论服务测试**
 
 写入 `apps/api/tests/commentService.test.ts`：
 
@@ -1022,7 +1022,7 @@ describe('commentService', () => {
 });
 ```
 
-- [ ] **步骤 3：编写失败的快照服务测试**
+- [x] **步骤 3：编写失败的快照服务测试**
 
 写入 `apps/api/tests/snapshotService.test.ts`：
 
@@ -1053,7 +1053,7 @@ describe('snapshotService', () => {
 });
 ```
 
-- [ ] **步骤 4：运行测试验证失败**
+- [x] **步骤 4：运行测试验证失败**
 
 运行：
 
@@ -1063,7 +1063,7 @@ pnpm --filter @online-docs/api test tests/shareService.test.ts tests/commentServ
 
 预期：FAIL，报错包含缺少 `shareService`、`commentService` 或 `snapshotService` 模块。
 
-- [ ] **步骤 5：扩展内存仓储类型**
+- [x] **步骤 5：扩展内存仓储类型**
 
 在 `apps/api/src/repositories/memoryStore.ts` 增加以下类型和字段：
 
@@ -1136,7 +1136,7 @@ commentReplies: [],
 snapshots: [],
 ```
 
-- [ ] **步骤 6：实现分享、评论和快照服务**
+- [x] **步骤 6：实现分享、评论和快照服务**
 
 写入 `apps/api/src/domain/shareService.ts`：
 
@@ -1310,7 +1310,7 @@ export function restoreSnapshot(store: MemoryStore, input: { snapshotId: string;
 }
 ```
 
-- [ ] **步骤 7：运行测试验证通过**
+- [x] **步骤 7：运行测试验证通过**
 
 运行：
 
@@ -1320,7 +1320,7 @@ pnpm --filter @online-docs/api test tests/shareService.test.ts tests/commentServ
 
 预期：PASS，3 个测试通过。
 
-- [ ] **步骤 8：Commit**
+- [x] **步骤 8：Commit**
 
 ```bash
 git add apps/api/src apps/api/tests/shareService.test.ts apps/api/tests/commentService.test.ts apps/api/tests/snapshotService.test.ts
