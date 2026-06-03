@@ -8,6 +8,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@online-docs/shared": "workspace:*",
     "@vitejs/plugin-react": "^4.3.0",
     "prosemirror-model": "^1.21.0",
     "prosemirror-schema-list": "^1.4.0",

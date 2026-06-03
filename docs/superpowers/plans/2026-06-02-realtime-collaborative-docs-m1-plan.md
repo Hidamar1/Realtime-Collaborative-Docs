@@ -374,7 +374,7 @@ git commit -m "chore: initialize collaborative docs workspace"
 - 修改：`apps/api/package.json`
 - 修改：`apps/web/package.json`
 
-- [ ] **步骤 1：编写失败的权限测试**
+- [x] **步骤 1：编写失败的权限测试**
 
 写入 `packages/shared/tests/permissionPolicy.test.ts`：
 
@@ -430,7 +430,7 @@ describe('canPerform', () => {
 });
 ```
 
-- [ ] **步骤 2：运行测试验证失败**
+- [x] **步骤 2：运行测试验证失败**
 
 运行：
 
@@ -440,7 +440,7 @@ pnpm --filter @online-docs/shared test
 
 预期：FAIL，报错包含 `Cannot find module '../src/permissionPolicy'`。
 
-- [ ] **步骤 3：创建 shared 包和最小实现**
+- [x] **步骤 3：创建 shared 包和最小实现**
 
 写入 `packages/shared/package.json`：
 
@@ -553,7 +553,7 @@ export function canPerform(role: Role, action: PermissionAction): boolean {
 }
 ```
 
-- [ ] **步骤 4：声明 API 和 Web 对 shared 的依赖**
+- [x] **步骤 4：声明 API 和 Web 对 shared 的依赖**
 
 在 `apps/api/package.json` 的 `dependencies` 中加入：
 
@@ -567,7 +567,7 @@ export function canPerform(role: Role, action: PermissionAction): boolean {
 "@online-docs/shared": "workspace:*"
 ```
 
-- [ ] **步骤 5：运行测试验证通过**
+- [x] **步骤 5：运行测试验证通过**
 
 运行：
 
@@ -577,7 +577,7 @@ pnpm --filter @online-docs/shared test
 
 预期：PASS，4 个测试通过。
 
-- [ ] **步骤 6：运行类型检查**
+- [x] **步骤 6：运行类型检查**
 
 运行：
 
@@ -587,7 +587,7 @@ pnpm --filter @online-docs/shared typecheck
 
 预期：PASS，无 TypeScript 错误。
 
-- [ ] **步骤 7：Commit**
+- [x] **步骤 7：Commit**
 
 ```bash
 git add packages/shared apps/api/package.json apps/web/package.json pnpm-lock.yaml
@@ -600,7 +600,7 @@ git commit -m "feat: add shared document permission policy"
 - 创建：`apps/api/src/security/sanitize.ts`
 - 创建：`apps/api/tests/sanitize.test.ts`
 
-- [ ] **步骤 1：编写失败的清理测试**
+- [x] **步骤 1：编写失败的清理测试**
 
 写入 `apps/api/tests/sanitize.test.ts`：
 
@@ -633,7 +633,7 @@ describe('sanitizeRichTextHtml', () => {
 });
 ```
 
-- [ ] **步骤 2：运行测试验证失败**
+- [x] **步骤 2：运行测试验证失败**
 
 运行：
 
@@ -643,7 +643,7 @@ pnpm --filter @online-docs/api test tests/sanitize.test.ts
 
 预期：FAIL，报错包含 `Cannot find module '../src/security/sanitize'`。
 
-- [ ] **步骤 3：编写最少实现代码**
+- [x] **步骤 3：编写最少实现代码**
 
 写入 `apps/api/src/security/sanitize.ts`：
 
@@ -677,7 +677,7 @@ export function sanitizeRichTextHtml(input: string): string {
 }
 ```
 
-- [ ] **步骤 4：运行测试验证通过**
+- [x] **步骤 4：运行测试验证通过**
 
 运行：
 
@@ -687,7 +687,7 @@ pnpm --filter @online-docs/api test tests/sanitize.test.ts
 
 预期：PASS，4 个测试通过。
 
-- [ ] **步骤 5：Commit**
+- [x] **步骤 5：Commit**
 
 ```bash
 git add apps/api/src/security/sanitize.ts apps/api/tests/sanitize.test.ts
@@ -702,7 +702,7 @@ git commit -m "feat: add server-side content sanitizers"
 - 创建：`apps/api/src/domain/auditLog.ts`
 - 创建：`apps/api/tests/documentService.test.ts`
 
-- [ ] **步骤 1：编写失败的文档服务测试**
+- [x] **步骤 1：编写失败的文档服务测试**
 
 写入 `apps/api/tests/documentService.test.ts`：
 
@@ -743,7 +743,7 @@ describe('documentService', () => {
 });
 ```
 
-- [ ] **步骤 2：运行测试验证失败**
+- [x] **步骤 2：运行测试验证失败**
 
 运行：
 
@@ -753,7 +753,7 @@ pnpm --filter @online-docs/api test tests/documentService.test.ts
 
 预期：FAIL，报错包含 `Cannot find module '../src/repositories/memoryStore'`。
 
-- [ ] **步骤 3：编写内存仓储和文档服务**
+- [x] **步骤 3：编写内存仓储和文档服务**
 
 写入 `apps/api/src/repositories/memoryStore.ts`：
 
@@ -931,7 +931,7 @@ export function createDocumentFromTemplate(store: MemoryStore, input: { template
 }
 ```
 
-- [ ] **步骤 4：运行测试验证通过**
+- [x] **步骤 4：运行测试验证通过**
 
 运行：
 
@@ -941,7 +941,7 @@ pnpm --filter @online-docs/api test tests/documentService.test.ts
 
 预期：PASS，2 个测试通过。
 
-- [ ] **步骤 5：Commit**
+- [x] **步骤 5：Commit**
 
 ```bash
 git add apps/api/src/repositories/memoryStore.ts apps/api/src/domain apps/api/tests/documentService.test.ts
@@ -959,7 +959,7 @@ git commit -m "feat: add in-memory document creation service"
 - 创建：`apps/api/tests/snapshotService.test.ts`
 - 修改：`apps/api/src/repositories/memoryStore.ts`
 
-- [ ] **步骤 1：编写失败的分享服务测试**
+- [x] **步骤 1：编写失败的分享服务测试**
 
 写入 `apps/api/tests/shareService.test.ts`：
 
@@ -987,7 +987,7 @@ describe('shareService', () => {
 });
 ```
 
-- [ ] **步骤 2：编写失败的评论服务测试**
+- [x] **步骤 2：编写失败的评论服务测试**
 
 写入 `apps/api/tests/commentService.test.ts`：
 
@@ -1022,7 +1022,7 @@ describe('commentService', () => {
 });
 ```
 
-- [ ] **步骤 3：编写失败的快照服务测试**
+- [x] **步骤 3：编写失败的快照服务测试**
 
 写入 `apps/api/tests/snapshotService.test.ts`：
 
@@ -1053,7 +1053,7 @@ describe('snapshotService', () => {
 });
 ```
 
-- [ ] **步骤 4：运行测试验证失败**
+- [x] **步骤 4：运行测试验证失败**
 
 运行：
 
@@ -1063,7 +1063,7 @@ pnpm --filter @online-docs/api test tests/shareService.test.ts tests/commentServ
 
 预期：FAIL，报错包含缺少 `shareService`、`commentService` 或 `snapshotService` 模块。
 
-- [ ] **步骤 5：扩展内存仓储类型**
+- [x] **步骤 5：扩展内存仓储类型**
 
 在 `apps/api/src/repositories/memoryStore.ts` 增加以下类型和字段：
 
@@ -1136,7 +1136,7 @@ commentReplies: [],
 snapshots: [],
 ```
 
-- [ ] **步骤 6：实现分享、评论和快照服务**
+- [x] **步骤 6：实现分享、评论和快照服务**
 
 写入 `apps/api/src/domain/shareService.ts`：
 
@@ -1310,7 +1310,7 @@ export function restoreSnapshot(store: MemoryStore, input: { snapshotId: string;
 }
 ```
 
-- [ ] **步骤 7：运行测试验证通过**
+- [x] **步骤 7：运行测试验证通过**
 
 运行：
 
@@ -1320,7 +1320,7 @@ pnpm --filter @online-docs/api test tests/shareService.test.ts tests/commentServ
 
 预期：PASS，3 个测试通过。
 
-- [ ] **步骤 8：Commit**
+- [x] **步骤 8：Commit**
 
 ```bash
 git add apps/api/src apps/api/tests/shareService.test.ts apps/api/tests/commentService.test.ts apps/api/tests/snapshotService.test.ts
@@ -1339,7 +1339,7 @@ git commit -m "feat: add share comment and snapshot services"
 - 创建：`apps/api/src/index.ts`
 - 创建：`apps/api/tests/httpApi.test.ts`
 
-- [ ] **步骤 1：编写失败的 HTTP API 测试**
+- [x] **步骤 1：编写失败的 HTTP API 测试**
 
 写入 `apps/api/tests/httpApi.test.ts`：
 
@@ -1385,7 +1385,7 @@ describe('HTTP API', () => {
 });
 ```
 
-- [ ] **步骤 2：运行测试验证失败**
+- [x] **步骤 2：运行测试验证失败**
 
 运行：
 
@@ -1395,7 +1395,7 @@ pnpm --filter @online-docs/api test tests/httpApi.test.ts
 
 预期：FAIL，报错包含 `Cannot find module '../src/server'`。
 
-- [ ] **步骤 3：实现测试身份解析**
+- [x] **步骤 3：实现测试身份解析**
 
 写入 `apps/api/src/auth/currentUser.ts`：
 
@@ -1416,7 +1416,7 @@ export function getCurrentUser(request: FastifyRequest): CurrentUser {
 }
 ```
 
-- [ ] **步骤 4：实现 HTTP 路由**
+- [x] **步骤 4：实现 HTTP 路由**
 
 写入 `apps/api/src/routes/documents.ts`：
 
@@ -1441,13 +1441,14 @@ export async function registerDocumentRoutes(app: FastifyInstance, store: Memory
     return createDocumentFromTemplate(store, { templateId: body.templateId, ownerId: user.id });
   });
 
-  app.get('/api/documents/:documentId', async (request) => {
+  app.get('/api/documents/:documentId', async (request, reply) => {
     getCurrentUser(request);
     const params = request.params as { documentId: string };
     const document = store.documents.get(params.documentId);
     const content = store.contents.get(params.documentId);
     if (!document || !content) {
-      return app.httpErrors.notFound('Document not found');
+      reply.code(404);
+      return { error: 'Document not found' };
     }
     return { document, content };
   });
@@ -1548,7 +1549,7 @@ export async function registerSnapshotRoutes(app: FastifyInstance, store: Memory
 }
 ```
 
-- [ ] **步骤 5：创建服务器入口**
+- [x] **步骤 5：创建服务器入口**
 
 写入 `apps/api/src/server.ts`：
 
@@ -1589,7 +1590,7 @@ await server.listen({ host: '127.0.0.1', port: 3000 });
 console.log('API listening on http://127.0.0.1:3000');
 ```
 
-- [ ] **步骤 6：运行测试验证通过**
+- [x] **步骤 6：运行测试验证通过**
 
 运行：
 
@@ -1599,7 +1600,7 @@ pnpm --filter @online-docs/api test tests/httpApi.test.ts
 
 预期：PASS，1 个测试通过。
 
-- [ ] **步骤 7：Commit**
+- [x] **步骤 7：Commit**
 
 ```bash
 git add apps/api/src apps/api/tests/httpApi.test.ts
@@ -1614,7 +1615,7 @@ git commit -m "feat: expose document collaboration HTTP API"
 - 创建：`apps/api/tests/collaborationServer.test.ts`
 - 修改：`apps/api/src/server.ts`
 
-- [ ] **步骤 1：编写失败的协同服务测试**
+- [x] **步骤 1：编写失败的协同服务测试**
 
 写入 `apps/api/tests/collaborationServer.test.ts`：
 
@@ -1639,7 +1640,7 @@ describe('documentRoom', () => {
 });
 ```
 
-- [ ] **步骤 2：运行测试验证失败**
+- [x] **步骤 2：运行测试验证失败**
 
 运行：
 
@@ -1649,7 +1650,7 @@ pnpm --filter @online-docs/api test tests/collaborationServer.test.ts
 
 预期：FAIL，报错包含 `Cannot find module '../src/realtime/documentRoom'`。
 
-- [ ] **步骤 3：实现单文档房间**
+- [x] **步骤 3：实现单文档房间**
 
 写入 `apps/api/src/realtime/documentRoom.ts`：
 
@@ -1700,7 +1701,7 @@ function colorForUser(userId: string): string {
 }
 ```
 
-- [ ] **步骤 4：实现 WebSocket 路由注册**
+- [x] **步骤 4：实现 WebSocket 路由注册**
 
 写入 `apps/api/src/realtime/collaborationServer.ts`：
 
@@ -1767,7 +1768,7 @@ import { registerCollaborationRoutes } from './realtime/collaborationServer';
 await registerCollaborationRoutes(instance, store);
 ```
 
-- [ ] **步骤 5：运行测试验证通过**
+- [x] **步骤 5：运行测试验证通过**
 
 运行：
 
@@ -1777,7 +1778,7 @@ pnpm --filter @online-docs/api test tests/collaborationServer.test.ts
 
 预期：PASS，1 个测试通过。
 
-- [ ] **步骤 6：Commit**
+- [x] **步骤 6：Commit**
 
 ```bash
 git add apps/api/src/realtime apps/api/src/server.ts apps/api/tests/collaborationServer.test.ts
@@ -1796,8 +1797,9 @@ git commit -m "feat: add yjs collaboration room service"
 - 创建：`apps/web/src/pages/PublicPreviewPage.tsx`
 - 创建：`apps/web/src/App.tsx`
 - 创建：`apps/web/src/styles.css`
+- 修改：`apps/web/tsconfig.json`
 
-- [ ] **步骤 1：编写失败的编辑器 schema 测试**
+- [x] **步骤 1：编写失败的编辑器 schema 测试**
 
 写入 `apps/web/tests/editorSchema.test.ts`：
 
@@ -1818,7 +1820,7 @@ describe('collaborativeDocSchema', () => {
 });
 ```
 
-- [ ] **步骤 2：运行测试验证失败**
+- [x] **步骤 2：运行测试验证失败**
 
 运行：
 
@@ -1828,7 +1830,7 @@ pnpm --filter @online-docs/web test tests/editorSchema.test.ts
 
 预期：FAIL，报错包含 `Cannot find module '../src/editor/schema'`。
 
-- [ ] **步骤 3：实现 ProseMirror schema**
+- [x] **步骤 3：实现 ProseMirror schema**
 
 写入 `apps/web/src/editor/schema.ts`：
 
@@ -1888,7 +1890,7 @@ export const collaborativeDocSchema = new Schema({
 });
 ```
 
-- [ ] **步骤 4：运行 schema 测试验证通过**
+- [x] **步骤 4：运行 schema 测试验证通过**
 
 运行：
 
@@ -1898,7 +1900,7 @@ pnpm --filter @online-docs/web test tests/editorSchema.test.ts
 
 预期：PASS，1 个测试通过。
 
-- [ ] **步骤 5：创建前端 API 与页面骨架**
+- [x] **步骤 5：创建前端 API 与页面骨架**
 
 写入 `apps/web/src/api/client.ts`：
 
@@ -2120,7 +2122,7 @@ body {
 }
 ```
 
-- [ ] **步骤 6：运行前端测试和类型检查**
+- [x] **步骤 6：运行前端测试和类型检查**
 
 运行：
 
@@ -2131,7 +2133,7 @@ pnpm --filter @online-docs/web typecheck
 
 预期：PASS，无 TypeScript 错误。
 
-- [ ] **步骤 7：Commit**
+- [x] **步骤 7：Commit**
 
 ```bash
 git add apps/web
@@ -2144,7 +2146,7 @@ git commit -m "feat: add collaborative document web shell"
 - 创建：`apps/web/src/editor/createEditor.ts`
 - 修改：`apps/web/src/pages/DocumentPage.tsx`
 
-- [ ] **步骤 1：编写失败的编辑器创建测试**
+- [x] **步骤 1：编写失败的编辑器创建测试**
 
 写入 `apps/web/tests/createEditor.test.ts`：
 
@@ -2162,7 +2164,7 @@ describe('createInitialYDocText', () => {
 });
 ```
 
-- [ ] **步骤 2：运行测试验证失败**
+- [x] **步骤 2：运行测试验证失败**
 
 运行：
 
@@ -2172,7 +2174,7 @@ pnpm --filter @online-docs/web test tests/createEditor.test.ts
 
 预期：FAIL，报错包含 `Cannot find module '../src/editor/createEditor'`。
 
-- [ ] **步骤 3：实现最小编辑器辅助函数**
+- [x] **步骤 3：实现最小编辑器辅助函数**
 
 写入 `apps/web/src/editor/createEditor.ts`：
 
@@ -2206,7 +2208,7 @@ export function mountEditor(element: HTMLElement, ydoc: Y.Doc, provider: { aware
 }
 ```
 
-- [ ] **步骤 4：接入 DocumentPage**
+- [x] **步骤 4：接入 DocumentPage**
 
 把 `apps/web/src/pages/DocumentPage.tsx` 替换为：
 
@@ -2264,7 +2266,7 @@ export function DocumentPage({ documentId }: { documentId: string }) {
 }
 ```
 
-- [ ] **步骤 5：运行测试验证通过**
+- [x] **步骤 5：运行测试验证通过**
 
 运行：
 
@@ -2275,7 +2277,7 @@ pnpm --filter @online-docs/web typecheck
 
 预期：PASS，无 TypeScript 错误。
 
-- [ ] **步骤 6：Commit**
+- [x] **步骤 6：Commit**
 
 ```bash
 git add apps/web/src/editor/createEditor.ts apps/web/src/pages/DocumentPage.tsx apps/web/tests/createEditor.test.ts
@@ -2289,7 +2291,7 @@ git commit -m "feat: connect prosemirror editor to yjs document"
 - 修改：`apps/api/src/server.ts`
 - 修改：`apps/api/src/realtime/collaborationServer.ts`
 
-- [ ] **步骤 1：编写失败的端到端测试**
+- [x] **步骤 1：编写失败的端到端测试**
 
 写入 `e2e/collaborative-doc.spec.ts`：
 
@@ -2313,7 +2315,7 @@ test('creates a document from template and opens public readonly preview', async
 });
 ```
 
-- [ ] **步骤 2：运行端到端测试验证失败**
+- [x] **步骤 2：运行端到端测试验证失败**
 
 运行：
 
@@ -2323,7 +2325,7 @@ pnpm test:e2e
 
 预期：FAIL。若失败原因是 WebSocket 路径不匹配或 CORS，进入下一步修复。
 
-- [ ] **步骤 3：修复 WebSocket 路径与 CORS**
+- [x] **步骤 3：修复 WebSocket 路径与 CORS**
 
 在 `apps/api/src/server.ts` 创建 Fastify 时允许本地前端访问：
 
@@ -2345,7 +2347,7 @@ app.get('/documents/:documentId', { websocket: true }, (connection, request) => 
 });
 ```
 
-- [ ] **步骤 4：运行端到端测试验证通过**
+- [x] **步骤 4：运行端到端测试验证通过**
 
 运行：
 
@@ -2355,7 +2357,7 @@ pnpm test:e2e
 
 预期：PASS，公开预览流程通过。
 
-- [ ] **步骤 5：运行全量测试与类型检查**
+- [x] **步骤 5：运行全量测试与类型检查**
 
 运行：
 
@@ -2366,7 +2368,7 @@ pnpm typecheck
 
 预期：PASS，无 TypeScript 错误。
 
-- [ ] **步骤 6：Commit**
+- [x] **步骤 6：Commit**
 
 ```bash
 git add e2e apps/api/src/server.ts apps/api/src/realtime/collaborationServer.ts
@@ -2379,7 +2381,7 @@ git commit -m "test: cover collaborative document preview flow"
 - 创建：`README.md`
 - 修改：`docs/superpowers/plans/2026-06-02-realtime-collaborative-docs-m1-plan.md`
 
-- [ ] **步骤 1：编写 README**
+- [x] **步骤 1：编写 README**
 
 写入 `README.md`：
 
@@ -2424,7 +2426,7 @@ pnpm test:e2e
 - 计划：`docs/superpowers/plans/2026-06-02-realtime-collaborative-docs-m1-plan.md`
 ```
 
-- [ ] **步骤 2：运行最终验证**
+- [x] **步骤 2：运行最终验证**
 
 运行：
 
@@ -2436,7 +2438,7 @@ pnpm test:e2e
 
 预期：全部 PASS。
 
-- [ ] **步骤 3：检查 Git 状态**
+- [x] **步骤 3：检查 Git 状态**
 
 运行：
 
@@ -2446,7 +2448,7 @@ git status --short
 
 预期：只显示 `README.md` 和计划文档变更。
 
-- [ ] **步骤 4：Commit**
+- [x] **步骤 4：Commit**
 
 ```bash
 git add README.md docs/superpowers/plans/2026-06-02-realtime-collaborative-docs-m1-plan.md
