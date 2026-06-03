@@ -15,9 +15,10 @@ export function getRoom(documentId: string) {
 }
 
 export async function registerCollaborationRoutes(app: FastifyInstance, store: MemoryStore) {
-  app.get('/ws/documents/:documentId', { websocket: true }, (socket, request) => {
+  app.get('/documents/:documentId', { websocket: true }, (socket, request) => {
     const params = request.params as { documentId: string };
-    const userId = String(request.headers['x-user-id'] ?? '');
+    const query = request.query as { userId?: string };
+    const userId = query.userId ?? String(request.headers['x-user-id'] ?? '');
     const member = store.members.get(`${params.documentId}:${userId}`);
 
     if (!member) {
@@ -40,7 +41,12 @@ export async function registerCollaborationRoutes(app: FastifyInstance, store: M
       }
 
       const update = toUint8Array(message);
-      room.applyUpdate(update, userId);
+      try {
+        room.applyUpdate(update, userId);
+      } catch {
+        socket.send(JSON.stringify({ type: 'error', reason: 'Invalid Yjs update' }));
+        return;
+      }
       for (const client of app.websocketServer.clients) {
         if (client !== socket && client.readyState === client.OPEN) {
           client.send(update);

@@ -2291,7 +2291,7 @@ git commit -m "feat: connect prosemirror editor to yjs document"
 - 修改：`apps/api/src/server.ts`
 - 修改：`apps/api/src/realtime/collaborationServer.ts`
 
-- [ ] **步骤 1：编写失败的端到端测试**
+- [x] **步骤 1：编写失败的端到端测试**
 
 写入 `e2e/collaborative-doc.spec.ts`：
 
@@ -2315,7 +2315,7 @@ test('creates a document from template and opens public readonly preview', async
 });
 ```
 
-- [ ] **步骤 2：运行端到端测试验证失败**
+- [x] **步骤 2：运行端到端测试验证失败**
 
 运行：
 
@@ -2325,7 +2325,7 @@ pnpm test:e2e
 
 预期：FAIL。若失败原因是 WebSocket 路径不匹配或 CORS，进入下一步修复。
 
-- [ ] **步骤 3：修复 WebSocket 路径与 CORS**
+- [x] **步骤 3：修复 WebSocket 路径与 CORS**
 
 在 `apps/api/src/server.ts` 创建 Fastify 时允许本地前端访问：
 
@@ -2347,7 +2347,7 @@ app.get('/documents/:documentId', { websocket: true }, (connection, request) => 
 });
 ```
 
-- [ ] **步骤 4：运行端到端测试验证通过**
+- [x] **步骤 4：运行端到端测试验证通过**
 
 运行：
 
@@ -2357,7 +2357,7 @@ pnpm test:e2e
 
 预期：PASS，公开预览流程通过。
 
-- [ ] **步骤 5：运行全量测试与类型检查**
+- [x] **步骤 5：运行全量测试与类型检查**
 
 运行：
 
@@ -2368,7 +2368,7 @@ pnpm typecheck
 
 预期：PASS，无 TypeScript 错误。
 
-- [ ] **步骤 6：Commit**
+- [x] **步骤 6：Commit**
 
 ```bash
 git add e2e apps/api/src/server.ts apps/api/src/realtime/collaborationServer.ts
