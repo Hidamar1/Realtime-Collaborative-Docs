@@ -702,7 +702,7 @@ git commit -m "feat: add server-side content sanitizers"
 - 创建：`apps/api/src/domain/auditLog.ts`
 - 创建：`apps/api/tests/documentService.test.ts`
 
-- [ ] **步骤 1：编写失败的文档服务测试**
+- [x] **步骤 1：编写失败的文档服务测试**
 
 写入 `apps/api/tests/documentService.test.ts`：
 
@@ -743,7 +743,7 @@ describe('documentService', () => {
 });
 ```
 
-- [ ] **步骤 2：运行测试验证失败**
+- [x] **步骤 2：运行测试验证失败**
 
 运行：
 
@@ -753,7 +753,7 @@ pnpm --filter @online-docs/api test tests/documentService.test.ts
 
 预期：FAIL，报错包含 `Cannot find module '../src/repositories/memoryStore'`。
 
-- [ ] **步骤 3：编写内存仓储和文档服务**
+- [x] **步骤 3：编写内存仓储和文档服务**
 
 写入 `apps/api/src/repositories/memoryStore.ts`：
 
@@ -931,7 +931,7 @@ export function createDocumentFromTemplate(store: MemoryStore, input: { template
 }
 ```
 
-- [ ] **步骤 4：运行测试验证通过**
+- [x] **步骤 4：运行测试验证通过**
 
 运行：
 
@@ -941,7 +941,7 @@ pnpm --filter @online-docs/api test tests/documentService.test.ts
 
 预期：PASS，2 个测试通过。
 
-- [ ] **步骤 5：Commit**
+- [x] **步骤 5：Commit**
 
 ```bash
 git add apps/api/src/repositories/memoryStore.ts apps/api/src/domain apps/api/tests/documentService.test.ts
