@@ -1615,7 +1615,7 @@ git commit -m "feat: expose document collaboration HTTP API"
 - 创建：`apps/api/tests/collaborationServer.test.ts`
 - 修改：`apps/api/src/server.ts`
 
-- [ ] **步骤 1：编写失败的协同服务测试**
+- [x] **步骤 1：编写失败的协同服务测试**
 
 写入 `apps/api/tests/collaborationServer.test.ts`：
 
@@ -1640,7 +1640,7 @@ describe('documentRoom', () => {
 });
 ```
 
-- [ ] **步骤 2：运行测试验证失败**
+- [x] **步骤 2：运行测试验证失败**
 
 运行：
 
@@ -1650,7 +1650,7 @@ pnpm --filter @online-docs/api test tests/collaborationServer.test.ts
 
 预期：FAIL，报错包含 `Cannot find module '../src/realtime/documentRoom'`。
 
-- [ ] **步骤 3：实现单文档房间**
+- [x] **步骤 3：实现单文档房间**
 
 写入 `apps/api/src/realtime/documentRoom.ts`：
 
@@ -1701,7 +1701,7 @@ function colorForUser(userId: string): string {
 }
 ```
 
-- [ ] **步骤 4：实现 WebSocket 路由注册**
+- [x] **步骤 4：实现 WebSocket 路由注册**
 
 写入 `apps/api/src/realtime/collaborationServer.ts`：
 
@@ -1768,7 +1768,7 @@ import { registerCollaborationRoutes } from './realtime/collaborationServer';
 await registerCollaborationRoutes(instance, store);
 ```
 
-- [ ] **步骤 5：运行测试验证通过**
+- [x] **步骤 5：运行测试验证通过**
 
 运行：
 
@@ -1778,7 +1778,7 @@ pnpm --filter @online-docs/api test tests/collaborationServer.test.ts
 
 预期：PASS，1 个测试通过。
 
-- [ ] **步骤 6：Commit**
+- [x] **步骤 6：Commit**
 
 ```bash
 git add apps/api/src/realtime apps/api/src/server.ts apps/api/tests/collaborationServer.test.ts

@@ -1,6 +1,7 @@
 import websocket from '@fastify/websocket';
 import fastify from 'fastify';
 import { createMemoryStore } from './repositories/memoryStore';
+import { registerCollaborationRoutes } from './realtime/collaborationServer';
 import { registerCommentRoutes } from './routes/comments';
 import { registerDocumentRoutes } from './routes/documents';
 import { registerShareRoutes } from './routes/share';
@@ -18,6 +19,7 @@ export function buildServer() {
     await registerShareRoutes(instance, store);
     await registerCommentRoutes(instance, store);
     await registerSnapshotRoutes(instance, store);
+    await registerCollaborationRoutes(instance, store);
   });
 
   return app;
